@@ -1,8 +1,7 @@
 /*****************************************************************************
  *
- *  author : 彭东江
- *  email  : pengdongjiang@gmail.com
- *  description : 检索服务
+ *  file name : search.go
+ *  description : 主检索服务
  *
 ******************************************************************************/
 package service
@@ -35,4 +34,6 @@ func CreateIndex(method string, parms map[string]string, body []byte) error {
 	if _, ok := this.IndexInfo[inxstruct.IndexName]; ok {
 		return fmt.Errorf("[ERROR] index [%v] already has ", idxstruct.IndexName)
 	}
+
+	OffsetMmap, _ = utils.NewMmap(fmt.Sprintf("%v/%v_%v.offset", utils.IDX_DETAIL_PATH, idxstruct.IndexName, i), utils.MODE_APPEND)
 }
