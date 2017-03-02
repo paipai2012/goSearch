@@ -31,8 +31,16 @@ const (
 type HttpService struct {
 }
 
+func main() {
+	config.LoadConfig()
+	// http.HandleFunc("/", hello)
+	httpService := &HttpService{}
+	http.ListenAndServe(":8081", httpService)
+}
+
 //实现http服务入口
 func (this *HttpService) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Print("cccc")
 	parms, err := this.parseArgs(r)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -93,13 +101,6 @@ func (this *HttpService) ParseURL(url string) (int, uint64, error) {
 		return version, URL_CONTROL, nil
 	}
 	return -1, 0, errors.New("Error")
-}
-
-func main() {
-	config.LoadConfig()
-	// http.HandleFunc("/", hello)
-	httpService := &HttpService{}
-	http.ListenAndServe(":8081", httpService)
 }
 
 func hello(rw http.ResponseWriter, req *http.Request) {
