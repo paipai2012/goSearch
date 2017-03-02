@@ -1,7 +1,7 @@
 /*****************************************************************************
  *  file name : btree.go
- *  author : Wu Yinghao
- *  email  : wyh817@gmail.com
+ *  author : paipai2012
+ *  email  : paipai2012@gmail.com
  *
  *  file description : b+tree
  *

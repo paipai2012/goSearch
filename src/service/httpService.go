@@ -5,7 +5,7 @@
  *
 ******************************************************************************/
 
-package FalconService
+package GoSearchService
 
 import (
 	"encoding/json"
